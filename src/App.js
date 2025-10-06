@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Mail, Phone, MapPin, ExternalLink, Linkedin } from 'lucide-react';
 import SEO from './components/SEO';
+import ThemeSwitcher from './components/ThemeSwitcher';
 
 const KalionDigital = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -98,7 +99,7 @@ const KalionDigital = () => {
         description="Допомагаємо бізнесу створювати цифрові продукти: AI автоматизація, SaaS розробка, чат-боти, веб та мобільні ігри. Професійна веб-розробка та IT-консалтинг в Україні."
         url="https://kalion.digital/"
       />
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white transition-colors duration-300">
         <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
@@ -113,7 +114,7 @@ const KalionDigital = () => {
 
         .gradient-border {
           position: relative;
-          background: black;
+          background: var(--card-bg);
           border-radius: 12px;
         }
 
@@ -143,11 +144,11 @@ const KalionDigital = () => {
 
         .card-hover {
           transition: all 0.3s;
-          background: #111;
+          background: var(--card-bg);
         }
 
         .card-hover:hover {
-          background: #1a1a1a;
+          background: var(--card-hover-bg);
           box-shadow: 0 0 30px rgba(106, 0, 255, 0.3);
           transform: translateY(-4px);
         }
@@ -158,32 +159,37 @@ const KalionDigital = () => {
       `}</style>
 
       {/* Header */}
-      <header className="border-b border-zinc-800 sticky top-0 bg-black z-40">
+      <header className="border-b border-gray-200 dark:border-zinc-800 sticky top-0 bg-white dark:bg-black z-40 transition-colors duration-300">
         <nav className="container mx-auto px-4 py-6">
           <div className="flex justify-between items-center">
-            <img src="/logo_w.svg" alt="Kalion.Digital" className="h-8 md:h-10" />
+            <img src="/logo_w.svg" alt="Kalion.Digital" className="h-8 md:h-10 dark:block hidden" />
+            <img src="/logo_b.svg" alt="Kalion.Digital" className="h-8 md:h-10 dark:hidden block" />
 
             <div className="hidden md:flex items-center gap-8">
               <a href="#services" className="hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-orange-500 hover:to-purple-600 transition">Послуги</a>
               <a href="#partners" className="hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-orange-500 hover:to-purple-600 transition">Партнери</a>
               <a href="#founders" className="hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-orange-500 hover:to-purple-600 transition">Засновники</a>
               <a href="#contact" className="hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-orange-500 hover:to-purple-600 transition">Контакти</a>
+              <ThemeSwitcher />
             </div>
 
-            <button
-              className="md:hidden text-white"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            <div className="md:hidden flex items-center gap-3">
+              <ThemeSwitcher />
+              <button
+                className="text-gray-900 dark:text-white"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
 
           {mobileMenuOpen && (
             <div className="md:hidden mt-4 pb-4 flex flex-col gap-4">
-              <a href="#services" className="text-gray-300 hover:text-white">Послуги</a>
-              <a href="#partners" className="text-gray-300 hover:text-white">Партнери</a>
-              <a href="#founders" className="text-gray-300 hover:text-white">Засновники</a>
-              <a href="#contact" className="text-gray-300 hover:text-white">Контакти</a>
+              <a href="#services" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Послуги</a>
+              <a href="#partners" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Партнери</a>
+              <a href="#founders" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Засновники</a>
+              <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Контакти</a>
             </div>
           )}
         </nav>
@@ -203,7 +209,7 @@ const KalionDigital = () => {
           <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
             Допомагаємо бізнесу створювати <span className="gradient-text">цифрові продукти</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-400 mb-10">
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-10">
             AI автоматизація, SaaS розробка, чат-боти, ігри та веб-додатки
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -221,18 +227,18 @@ const KalionDigital = () => {
       </section>
 
       {/* Services */}
-      <section id="services" className="py-20 bg-zinc-950">
+      <section id="services" className="py-20 bg-gray-50 dark:bg-zinc-950 transition-colors duration-300">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
             До нас звертаються, коли <span className="gradient-text">потрібно</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
-              <div key={index} className="card-hover p-8 rounded-xl border border-zinc-800">
+              <div key={index} className="card-hover p-8 rounded-xl border border-gray-200 dark:border-zinc-800 transition-colors duration-300">
                 <div className="text-5xl mb-4">{service.icon}</div>
                 <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
-                <p className="text-gray-400 mb-3">{service.description}</p>
-                <p className="text-sm text-gray-500">{service.details}</p>
+                <p className="text-gray-600 dark:text-gray-400 mb-3">{service.description}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-500">{service.details}</p>
               </div>
             ))}
           </div>
@@ -245,7 +251,7 @@ const KalionDigital = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
             Клієнти та <span className="gradient-text">партнери</span>
           </h2>
-          <p className="text-center text-gray-400 mb-12 text-lg">
+          <p className="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">
             Довіра провідних компаній
           </p>
 
@@ -256,7 +262,7 @@ const KalionDigital = () => {
                 href={partner.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card-hover p-6 rounded-lg border border-zinc-800 flex flex-col items-center justify-center min-h-[160px] bg-zinc-900"
+                className="card-hover p-6 rounded-lg border border-gray-200 dark:border-zinc-800 flex flex-col items-center justify-center min-h-[160px] bg-white dark:bg-zinc-900 transition-colors duration-300"
               >
                 <div className="mb-3 h-16 flex items-center justify-center w-full">
                   {partner.logo ? (
@@ -278,18 +284,18 @@ const KalionDigital = () => {
       </section>
 
       {/* Founders */}
-      <section id="founders" className="py-20 bg-zinc-950">
+      <section id="founders" className="py-20 bg-gray-50 dark:bg-zinc-950 transition-colors duration-300">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
             <span className="gradient-text">Засновники</span>
           </h2>
-          <p className="text-center text-gray-400 mb-12 text-lg">
+          <p className="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">
             Досвід створення digital продуктів від ідеї до масштабування
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {founders.map((founder, index) => (
-              <div key={index} className="card-hover p-8 rounded-xl border border-zinc-800">
+              <div key={index} className="card-hover p-8 rounded-xl border border-gray-200 dark:border-zinc-800 transition-colors duration-300">
                 <div className="flex flex-col items-center mb-6">
                   <div className="w-32 h-32 rounded-full overflow-hidden mb-4 glow-purple">
                     <img
@@ -303,13 +309,13 @@ const KalionDigital = () => {
                   <p className="gradient-text font-semibold">{founder.role}</p>
                 </div>
 
-                <p className="text-gray-400 mb-4 text-center">{founder.bio}</p>
+                <p className="text-gray-600 dark:text-gray-400 mb-4 text-center">{founder.bio}</p>
 
                 <div className="mb-4">
                   <p className="text-sm font-semibold text-gray-500 mb-2 text-center">Експертиза:</p>
                   <div className="flex flex-wrap gap-2 justify-center">
                     {founder.expertise.map((skill, idx) => (
-                      <span key={idx} className="bg-zinc-800 text-purple-400 text-xs px-3 py-1 rounded-full border border-purple-900">
+                      <span key={idx} className="bg-gray-200 dark:bg-zinc-800 text-purple-600 dark:text-purple-400 text-xs px-3 py-1 rounded-full border border-purple-300 dark:border-purple-900 transition-colors duration-300">
                         {skill}
                       </span>
                     ))}
@@ -321,7 +327,7 @@ const KalionDigital = () => {
                     href={founder.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition"
+                    className="inline-flex items-center gap-2 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition"
                   >
                     <ExternalLink size={16} />
                     <span className="text-sm font-semibold">LinkedIn</span>
@@ -346,35 +352,35 @@ const KalionDigital = () => {
 
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <MapPin className="text-purple-500 flex-shrink-0 mt-1" size={20} />
+                  <MapPin className="text-purple-600 dark:text-purple-500 flex-shrink-0 mt-1" size={20} />
                   <div>
                     <div className="font-semibold">Юридична адреса:</div>
-                    <div className="text-gray-400">03057, м. Київ, вул. Брайчевського, буд. 4, кв. 507</div>
+                    <div className="text-gray-600 dark:text-gray-400">03057, м. Київ, вул. Брайчевського, буд. 4, кв. 507</div>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <Phone className="text-purple-500 flex-shrink-0" size={20} />
+                  <Phone className="text-purple-600 dark:text-purple-500 flex-shrink-0" size={20} />
                   <div>
                     <div className="font-semibold">Телефон:</div>
-                    <a href="tel:+380969999940" className="text-purple-400 hover:text-purple-300">
+                    <a href="tel:+380969999940" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300">
                       +380 96 999 99 40
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <Mail className="text-purple-500 flex-shrink-0" size={20} />
+                  <Mail className="text-purple-600 dark:text-purple-500 flex-shrink-0" size={20} />
                   <div>
                     <div className="font-semibold">Email:</div>
-                    <a href="mailto:hello@kalion.digital" className="text-purple-400 hover:text-purple-300">
+                    <a href="mailto:hello@kalion.digital" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300">
                       hello@kalion.digital
                     </a>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-zinc-800">
-                  <div className="text-sm text-gray-400">
+                <div className="pt-4 border-t border-gray-200 dark:border-zinc-800">
+                  <div className="text-sm text-gray-600 dark:text-gray-400">
                     <div><strong>ІПН:</strong> 3438113235</div>
                   </div>
                 </div>
@@ -385,35 +391,36 @@ const KalionDigital = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-zinc-950 border-t border-zinc-800 py-12">
+      <footer className="bg-gray-100 dark:bg-zinc-950 border-t border-gray-200 dark:border-zinc-800 py-12 transition-colors duration-300">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             {/* Company Info */}
             <div className="text-center md:text-left">
-              <img src="/logo_w.svg" alt="Kalion.Digital" className="h-8 mb-4 mx-auto md:mx-0" />
-              <div className="text-sm text-gray-400 mb-2">
+              <img src="/logo_w.svg" alt="Kalion.Digital" className="h-8 mb-4 mx-auto md:mx-0 dark:block hidden" />
+              <img src="/logo_b.svg" alt="Kalion.Digital" className="h-8 mb-4 mx-auto md:mx-0 dark:hidden block" />
+              <div className="text-sm text-gray-600 dark:text-gray-400 mb-2">
                 Допомагаємо бізнесу створювати цифрові продукти
               </div>
             </div>
 
             {/* Contact Info */}
             <div className="text-center md:text-right">
-              <h3 className="text-white font-semibold mb-3">Контакти</h3>
+              <h3 className="text-gray-900 dark:text-white font-semibold mb-3">Контакти</h3>
               <div className="space-y-2 text-sm">
                 <div>
-                  <a href="tel:+380969999940" className="text-gray-400 hover:text-purple-400 transition flex items-center justify-center md:justify-end gap-2">
+                  <a href="tel:+380969999940" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition flex items-center justify-center md:justify-end gap-2">
                     <Phone size={16} />
                     <span>+380 96 999 99 40</span>
                   </a>
                 </div>
                 <div>
-                  <a href="mailto:hello@kalion.digital" className="text-gray-400 hover:text-purple-400 transition flex items-center justify-center md:justify-end gap-2">
+                  <a href="mailto:hello@kalion.digital" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition flex items-center justify-center md:justify-end gap-2">
                     <Mail size={16} />
                     <span>hello@kalion.digital</span>
                   </a>
                 </div>
                 <div>
-                  <a href="https://linkedin.com/company/monochrome-tech/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition flex items-center justify-center md:justify-end gap-2">
+                  <a href="https://linkedin.com/company/monochrome-tech/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition flex items-center justify-center md:justify-end gap-2">
                     <Linkedin size={16} />
                     <span>monochrome-tech</span>
                   </a>
@@ -423,16 +430,16 @@ const KalionDigital = () => {
 
             {/* Legal */}
             <div className="text-center md:text-right">
-              <h3 className="text-white font-semibold mb-3">Юридична інформація</h3>
-              <div className="space-y-1 text-sm text-gray-400 mb-3">
+              <h3 className="text-gray-900 dark:text-white font-semibold mb-3">Юридична інформація</h3>
+              <div className="space-y-1 text-sm text-gray-600 dark:text-gray-400 mb-3">
                 <div>ФОП Каліон Максим Олександрович</div>
                 <div>ІПН: 3438113235</div>
               </div>
               <div className="flex flex-col items-center md:items-end gap-2 text-sm">
-                <Link to="/terms" className="text-gray-400 hover:text-purple-400 transition underline">
+                <Link to="/terms" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition underline">
                   Правила та умови
                 </Link>
-                <Link to="/refund" className="text-gray-400 hover:text-purple-400 transition underline">
+                <Link to="/refund" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition underline">
                   Політика повернення
                 </Link>
               </div>
@@ -440,7 +447,7 @@ const KalionDigital = () => {
           </div>
 
           {/* Copyright */}
-          <div className="border-t border-zinc-800 pt-6 text-center">
+          <div className="border-t border-gray-200 dark:border-zinc-800 pt-6 text-center">
             <div className="text-sm text-gray-500">
               © 2025 Kalion.Digital. Всі права захищені.
             </div>
