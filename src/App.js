@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Mail, Phone, MapPin, ExternalLink, Linkedin } from 'lucide-react';
+import SEO from './components/SEO';
 
 const KalionDigital = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -48,25 +49,25 @@ const KalionDigital = () => {
     {
       name: "Genius.Space",
       logo: "/images/genius_space.svg",
-      description: "Платформа для управління проєктами",
+      description: "Найбільша освітня платформа в Україні",
       website: "https://genius.space"
     },
     {
       name: "Park 36",
       logo: "https://wearepark36.com/wp-content/themes/WePark/img/logo-white.svg",
-      description: "Креативний хаб та коворкінг",
+      description: "Креативна дизайн студія з ТОП-100 Іспанії",
       website: "https://wearepark36.com/"
     },
     {
       name: "TrailerValet",
       logo: "/images/logo_dark_theme_transparent@2x.png",
-      description: "Система управління трейлерами",
+      description: "Система управління трейлерами в США",
       website: "https://trailervalet.com/"
     },
     {
       name: "Markupus",
       logo: "/images/markapus.svg",
-      description: "Платформа для дизайн-розробки",
+      description: "Провідна WordPress агенція",
       website: "https://markupus.com/"
     }
   ];
@@ -91,8 +92,14 @@ const KalionDigital = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <style>{`
+    <>
+      <SEO
+        title="Kalion.Digital - Розробка цифрових продуктів | AI автоматизація, SaaS, чат-боти"
+        description="Допомагаємо бізнесу створювати цифрові продукти: AI автоматизація, SaaS розробка, чат-боти, веб та мобільні ігри. Професійна веб-розробка та IT-консалтинг в Україні."
+        url="https://kalion.digital/"
+      />
+      <div className="min-h-screen bg-black text-white">
+        <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
         body { font-family: 'Inter', sans-serif; }
@@ -255,7 +262,8 @@ const KalionDigital = () => {
                   {partner.logo ? (
                     <img
                       src={partner.logo}
-                      alt={partner.name}
+                      alt={`${partner.name} logo`}
+                      loading="lazy"
                       className="max-h-12 max-w-full object-contain hover:scale-110 transition-transform"
                     />
                   ) : (
@@ -286,7 +294,8 @@ const KalionDigital = () => {
                   <div className="w-32 h-32 rounded-full overflow-hidden mb-4 glow-purple">
                     <img
                       src={founder.photo}
-                      alt={founder.name}
+                      alt={`${founder.name} - ${founder.role}`}
+                      loading="lazy"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -438,7 +447,8 @@ const KalionDigital = () => {
           </div>
         </div>
       </footer>
-    </div>
+      </div>
+    </>
   );
 };
 

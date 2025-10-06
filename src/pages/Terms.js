@@ -1,10 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Terms = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <>
+      <SEO
+        title="Правила та умови | Kalion.Digital"
+        description="Правила та умови надання послуг ФОП Каліон Максим Олександрович: AI автоматизація, SaaS розробка, чат-боти, веб-розробка та IT-консалтинг."
+        url="https://kalion.digital/terms"
+      />
+      <div className="min-h-screen bg-black text-white">
       <div className="container mx-auto px-4 py-12">
         <Link to="/" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 mb-8">
           <ArrowLeft size={20} />
@@ -79,7 +86,8 @@ const Terms = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

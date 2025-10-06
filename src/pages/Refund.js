@@ -1,10 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Refund = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <>
+      <SEO
+        title="Політика повернення коштів | Kalion.Digital"
+        description="Політика повернення коштів ФОП Каліон Максим Олександрович. Умови повернення для цифрових продуктів, освітніх курсів, консультацій та веб-розробки."
+        url="https://kalion.digital/refund"
+      />
+      <div className="min-h-screen bg-black text-white">
       <div className="container mx-auto px-4 py-12">
         <Link to="/" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 mb-8">
           <ArrowLeft size={20} />
@@ -84,7 +91,8 @@ const Refund = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 
