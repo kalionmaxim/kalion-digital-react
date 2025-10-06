@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Menu, X, Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Menu, X, Mail, Phone, MapPin, ExternalLink, Linkedin } from 'lucide-react';
 
 const KalionDigital = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeModal, setActiveModal] = useState(null);
 
   const services = [
     {
@@ -56,6 +56,18 @@ const KalionDigital = () => {
       logo: "https://wearepark36.com/wp-content/themes/WePark/img/logo-white.svg",
       description: "Креативний хаб та коворкінг",
       website: "https://wearepark36.com/"
+    },
+    {
+      name: "TrailerValet",
+      logo: "/images/logo_dark_theme_transparent@2x.png",
+      description: "Система управління трейлерами",
+      website: "https://trailervalet.com/"
+    },
+    {
+      name: "Markupus",
+      logo: "/images/markapus.svg",
+      description: "Платформа для дизайн-розробки",
+      website: "https://markupus.com/"
     }
   ];
 
@@ -77,26 +89,6 @@ const KalionDigital = () => {
       photo: "https://media.licdn.com/dms/image/v2/D4D03AQHTVHwSD7AkpQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1727867952094?e=1762387200&v=beta&t=uSx7OOCpD8z4L9PhFzbl82UYGIJqLyqlrRp-20lfscw"
     }
   ];
-
-  const Modal = ({ isOpen, onClose, title, children }) => {
-    if (!isOpen) return null;
-
-    return (
-      <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4" onClick={onClose}>
-        <div className="bg-zinc-900 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-zinc-800" onClick={e => e.stopPropagation()}>
-          <div className="sticky top-0 bg-zinc-900 border-b border-zinc-800 p-6 flex justify-between items-center">
-            <h2 className="text-2xl font-bold text-white">{title}</h2>
-            <button onClick={onClose} className="p-2 hover:bg-zinc-800 rounded text-white">
-              <X size={24} />
-            </button>
-          </div>
-          <div className="p-6 text-gray-300">
-            {children}
-          </div>
-        </div>
-      </div>
-    );
-  };
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -191,10 +183,14 @@ const KalionDigital = () => {
       </header>
 
       {/* Hero */}
-      <section className="relative container mx-auto px-4 py-20 md:py-32">
+      <section className="relative container mx-auto px-4 py-20 md:py-32 overflow-hidden">
         <div
-          className="absolute inset-0 bg-center bg-no-repeat bg-contain opacity-10 pointer-events-none"
-          style={{ backgroundImage: "url('/Hex.svg')" }}
+          className="absolute inset-0 bg-center bg-no-repeat opacity-30 pointer-events-none bg-fixed"
+          style={{
+            backgroundImage: "url('/Hex.svg')",
+            backgroundSize: '85%',
+            backgroundAttachment: 'fixed'
+          }}
         ></div>
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
@@ -253,14 +249,14 @@ const KalionDigital = () => {
                 href={partner.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card-hover p-6 rounded-lg border border-zinc-800 flex flex-col items-center justify-center min-h-[160px]"
+                className="card-hover p-6 rounded-lg border border-zinc-800 flex flex-col items-center justify-center min-h-[160px] bg-zinc-900"
               >
-                <div className="mb-3 h-16 flex items-center">
+                <div className="mb-3 h-16 flex items-center justify-center w-full">
                   {partner.logo ? (
                     <img
                       src={partner.logo}
                       alt={partner.name}
-                      className="max-h-12 w-auto object-contain brightness-75 hover:brightness-100 transition"
+                      className="max-h-12 max-w-full object-contain hover:scale-110 transition-transform"
                     />
                   ) : (
                     <span className="text-gray-500 font-bold">{partner.name}</span>
@@ -392,38 +388,44 @@ const KalionDigital = () => {
             </div>
 
             {/* Contact Info */}
-            <div className="text-center md:text-left">
+            <div className="text-center md:text-right">
               <h3 className="text-white font-semibold mb-3">Контакти</h3>
               <div className="space-y-2 text-sm">
                 <div>
-                  <a href="tel:+380969999940" className="text-gray-400 hover:text-purple-400 transition flex items-center justify-center md:justify-start gap-2">
+                  <a href="tel:+380969999940" className="text-gray-400 hover:text-purple-400 transition flex items-center justify-center md:justify-end gap-2">
                     <Phone size={16} />
                     <span>+380 96 999 99 40</span>
                   </a>
                 </div>
                 <div>
-                  <a href="mailto:hello@kalion.digital" className="text-gray-400 hover:text-purple-400 transition flex items-center justify-center md:justify-start gap-2">
+                  <a href="mailto:hello@kalion.digital" className="text-gray-400 hover:text-purple-400 transition flex items-center justify-center md:justify-end gap-2">
                     <Mail size={16} />
                     <span>hello@kalion.digital</span>
+                  </a>
+                </div>
+                <div>
+                  <a href="https://linkedin.com/company/monochrome-tech/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition flex items-center justify-center md:justify-end gap-2">
+                    <Linkedin size={16} />
+                    <span>monochrome-tech</span>
                   </a>
                 </div>
               </div>
             </div>
 
             {/* Legal */}
-            <div className="text-center md:text-left">
+            <div className="text-center md:text-right">
               <h3 className="text-white font-semibold mb-3">Юридична інформація</h3>
               <div className="space-y-1 text-sm text-gray-400 mb-3">
                 <div>ФОП Каліон Максим Олександрович</div>
                 <div>ІПН: 3438113235</div>
               </div>
-              <div className="flex flex-col items-center md:items-start gap-2 text-sm">
-                <button onClick={() => setActiveModal('terms')} className="text-gray-400 hover:text-purple-400 transition">
+              <div className="flex flex-col items-center md:items-end gap-2 text-sm">
+                <Link to="/terms" className="text-gray-400 hover:text-purple-400 transition underline">
                   Правила та умови
-                </button>
-                <button onClick={() => setActiveModal('refund')} className="text-gray-400 hover:text-purple-400 transition">
+                </Link>
+                <Link to="/refund" className="text-gray-400 hover:text-purple-400 transition underline">
                   Політика повернення
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -436,130 +438,6 @@ const KalionDigital = () => {
           </div>
         </div>
       </footer>
-
-      {/* Modals */}
-      <Modal isOpen={activeModal === 'terms'} onClose={() => setActiveModal(null)} title="Правила та умови">
-        <div className="space-y-6">
-          <div>
-            <h3 className="text-xl font-bold mb-3 text-white">1. Загальні положення</h3>
-            <p className="text-gray-300 mb-4">
-              Ці Правила та умови регулюють відносини між ФОП Каліон Максим Олександрович
-              та клієнтами при наданні послуг.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-bold mb-3 text-white">2. Послуги</h3>
-            <p className="mb-2 text-gray-300">Виконавець надає наступні послуги:</p>
-            <ul className="list-disc pl-6 mb-4 text-gray-300 space-y-1">
-              <li>AI автоматизація бізнес-процесів</li>
-              <li>Розробка SaaS продуктів</li>
-              <li>Створення чат-ботів</li>
-              <li>Розробка веб та мобільних ігор</li>
-              <li>Веб-розробка (сайти та додатки)</li>
-              <li>IT-консультації</li>
-              <li>Проведення освітніх курсів</li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-bold mb-3 text-white">3. Умови оплати</h3>
-            <p className="mb-2 text-gray-300">Прийняті способи оплати:</p>
-            <ul className="list-disc pl-6 mb-4 text-gray-300 space-y-1">
-              <li>Банківські картки Visa, MasterCard</li>
-              <li>Privat24</li>
-              <li>Безготівковий розрахунок (UAH)</li>
-            </ul>
-            <p className="mb-4 text-gray-300">
-              Оплата здійснюється через платіжну систему WayForPay.
-              Комісія платіжної системи (2%) включена у вартість послуг.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-bold mb-3 text-white">4. Відповідальність</h3>
-            <p className="mb-4 text-gray-300">
-              Виконавець несе відповідальність за якість наданих послуг відповідно до
-              законодавства України. Клієнт несе відповідальність за достовірність наданих даних.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-bold mb-3 text-white">5. Контактна інформація</h3>
-            <p className="text-gray-300 space-y-1">
-              <div>ФОП Каліон Максим Олександрович</div>
-              <div>ІПН: 3438113235</div>
-              <div>Адреса: 03057, м. Київ, вул. Брайчевського, 4, кв. 507</div>
-              <div>Телефон: +380 96 999 99 40</div>
-              <div>Email: hello@kalion.digital</div>
-            </p>
-          </div>
-        </div>
-      </Modal>
-
-      <Modal isOpen={activeModal === 'refund'} onClose={() => setActiveModal(null)} title="Політика повернення коштів">
-        <div className="space-y-6">
-          <div>
-            <h3 className="text-xl font-bold mb-3 text-white">Цифрові продукти</h3>
-            <p className="mb-2 text-gray-300">Повернення коштів можливе протягом 14 днів, якщо:</p>
-            <ul className="list-disc pl-6 mb-4 text-gray-300 space-y-1">
-              <li>Продукт не відповідає опису</li>
-              <li>Продукт має технічні проблеми, які неможливо усунути</li>
-              <li>Клієнт не отримав доступ до продукту</li>
-            </ul>
-            <p className="mb-2 text-gray-300">Повернення НЕ здійснюється, якщо:</p>
-            <ul className="list-disc pl-6 mb-4 text-gray-300 space-y-1">
-              <li>Продукт вже був завантажений або використаний</li>
-              <li>Минуло більше 14 днів з моменту покупки</li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-bold mb-3 text-white">Освітні курси</h3>
-            <p className="mb-2 text-gray-300">Повернення можливе протягом 7 днів, якщо:</p>
-            <ul className="list-disc pl-6 mb-4 text-gray-300 space-y-1">
-              <li>Не переглянуто більше 20% матеріалів курсу</li>
-              <li>Курс не відповідає заявленому опису</li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-bold mb-3 text-white">Консультаційні послуги</h3>
-            <ul className="list-disc pl-6 mb-4 text-gray-300 space-y-1">
-              <li>Відмова за 24+ години до консультації — повне повернення</li>
-              <li>Відмова менш ніж за 24 години — повернення не здійснюється</li>
-              <li>Якщо консультація не відбулася з вини виконавця — повне повернення</li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-bold mb-3 text-white">Веб-розробка та індивідуальні проекти</h3>
-            <p className="mb-4 text-gray-300">
-              Умови повернення визначаються індивідуально у договорі на проект.
-              Повернення передоплати можливе до початку робіт, за вирахуванням 10% організаційних витрат.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-bold mb-3 text-white">Процедура повернення</h3>
-            <ol className="list-decimal pl-6 mb-4 text-gray-300 space-y-2">
-              <li>Надішліть запит на: hello@kalion.digital</li>
-              <li>Вкажіть: номер замовлення, дату покупки, причину повернення</li>
-              <li>Очікуйте розгляду протягом 3 робочих днів</li>
-              <li>При схваленні — кошти повертаються протягом 10 робочих днів</li>
-            </ol>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-bold mb-3 text-white">Контакти</h3>
-            <p className="text-gray-300 space-y-1">
-              <div>Email: hello@kalion.digital</div>
-              <div>Телефон: +380 96 999 99 40</div>
-              <div>Час роботи: Пн-Пт, 9:00-18:00 (Київ)</div>
-            </p>
-          </div>
-        </div>
-      </Modal>
     </div>
   );
 };
