@@ -1,70 +1,145 @@
-# Getting Started with Create React App
+# Kalion.Digital - React Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Simple React site with Monochrome design (black background, orange-purple gradient) for WayForPay payment integration.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+- Node.js 18+
+- npm or yarn
 
-### `npm start`
+## Quick Start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+# Install dependencies
+npm install
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Start development server
+npm start
 
-### `npm test`
+# Build for production
+npm run build
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Structure
 
-### `npm run build`
+```
+kalion-digital-react/
+├── public/
+│   └── index.html         (SEO meta tags, WayForPay script)
+├── src/
+│   ├── App.js             (main component with all sections)
+│   ├── App.css            (empty - styles in App.js)
+│   └── index.js           (React entry point)
+├── .do/
+│   └── app.yaml           (DigitalOcean App Platform config)
+└── package.json
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- ✅ Monochrome design (black #000, orange #FF9933, purple #6A00FF)
+- ✅ WayForPay payment integration
+- ✅ Legal documentation (Terms & Conditions, Refund Policy)
+- ✅ Responsive mobile design
+- ✅ Service cards with pricing
+- ✅ Team section with founders
+- ✅ Partners section
+- ✅ Contact information
+- ✅ Modal dialogs for legal docs and payments
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## WayForPay Integration
 
-### `npm run eject`
+The site includes WayForPay payment system integration. To activate:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Register at [WayForPay](https://wayforpay.com)
+2. Get your merchant credentials
+3. Update `App.js` line 101-104:
+   ```javascript
+   merchantAccount: "your_merchant_account",
+   merchantDomainName: "kalion.digital",
+   merchantSignature: "your_merchant_signature"
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Deployment Options
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### DigitalOcean App Platform (Recommended)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Push code to GitHub
+2. Create new App in DigitalOcean
+3. Select your repository
+4. App Platform will auto-detect settings from `.do/app.yaml`
+5. Deploy
 
-## Learn More
+### DigitalOcean Droplet
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+# Build production
+npm run build
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Upload build/ folder to droplet
+# Serve with nginx or serve
+```
 
-### Code Splitting
+### Other Options
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Vercel: `npm install -g vercel && vercel`
+- Netlify: Drag `build/` folder to Netlify
+- GitHub Pages: Configure in package.json
 
-### Analyzing the Bundle Size
+## Legal Requirements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+All legal documentation is included per WayForPay requirements:
 
-### Making a Progressive Web App
+- **ФОП Каліон Максим Олександрович**
+- **ІПН**: 3438113235
+- **Address**: 03057, м. Київ, вул. Брайчевського, буд. 4, кв. 507
+- **Phone**: +380 96 999 99 40
+- **Email**: hello@kalion.digital
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Customization
 
-### Advanced Configuration
+### Update Founder Photos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Replace placeholder URLs in `App.js` (lines 55, 62):
+```javascript
+photo: "https://your-image-url.jpg"
+```
 
-### Deployment
+### Add Services
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Edit the `services` array in `App.js` (line 12).
 
-### `npm run build` fails to minify
+### Update Pricing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Change `price` values in service objects (in UAH).
+
+## Tech Stack
+
+- React 18
+- lucide-react (icons)
+- No TypeScript
+- No database required
+- No backend needed
+- Static site deployment
+
+## Production Checklist
+
+- [ ] Replace placeholder founder photos
+- [ ] Update WayForPay merchant credentials
+- [ ] Test all payment flows
+- [ ] Verify legal documentation accuracy
+- [ ] Test mobile responsive design
+- [ ] Test all contact links (email, phone, LinkedIn)
+- [ ] Add real partner logos
+- [ ] Configure domain DNS
+
+## Browser Support
+
+- Chrome/Edge 90+
+- Firefox 88+
+- Safari 14+
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## License
+
+© 2024 ФОП Каліон Максим Олександрович. All rights reserved.

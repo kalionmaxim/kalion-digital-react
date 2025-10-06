@@ -1,5 +1,20 @@
 Kalion.Digital - React Website
 Simple React site with Monochrome design (black background, orange-purple gradient).
+
+## Current Status (2025-10-06)
+
+**Modified files:**
+- README.md, docs/ts.md
+- package-lock.json, package.json
+- public/index.html
+- src/App.css, src/App.js, src/index.css
+
+**Untracked files:**
+- .claude/, .do/, .doignore, .env
+- postcss.config.js, tailwind.config.js
+
+**Branch:** master
+**Status:** Uncommitted changes with Tailwind CSS integration in progress
 Prerequisites
 
 Node.js 18+
@@ -153,7 +168,7 @@ Privat24
 ІПН: 3438113235
 Адреса: 03057, м. Київ, вул. Брайчевського, буд. 4, кв. 507
 Телефон: +380 96 999 99 40
-Email: maksym@kalion.digital
+Email: hello@kalion.digital
 
 LEGAL_REFUND.md
 Політика повернення коштів
@@ -186,7 +201,7 @@ LEGAL_REFUND.md
 Умови повернення визначаються індивідуально у договорі на проект. Як правило, повернення передоплати можливе до початку робіт, за вирахуванням 10% організаційних витрат.
 Процедура повернення
 
-Надішліть запит на повернення на email: maksym@kalion.digital
+Надішліть запит на повернення на email: hello@kalion.digital
 Вкажіть: номер замовлення, дату покупки, причину повернення
 Очікуйте розгляду протягом 3 робочих днів
 При схваленні — кошти повертаються протягом 10 робочих днів на ту саму картку/рахунок
@@ -194,6 +209,6 @@ LEGAL_REFUND.md
 Строки повернення
 Повернення коштів здійснюється протягом 10 робочих днів після схвалення запиту. Кошти повертаються тим же способом, яким була здійснена оплата.
 Контакти
-Email: maksym@kalion.digital
+Email: hello@kalion.digital
 Телефон: +380 96 999 99 40
 Час роботи: Пн-Пт, 9:00-18:00 (за київським часом)
