@@ -7,6 +7,7 @@ import './index.css';
 import App from './App';
 import Terms from './pages/Terms';
 import Refund from './pages/Refund';
+import VersionB from './pages/VersionB';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -17,6 +18,7 @@ root.render(
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<App />} />
+            <Route path="/version-b" element={<VersionB />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/refund" element={<Refund />} />
           </Routes>
