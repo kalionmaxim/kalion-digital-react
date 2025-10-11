@@ -17,8 +17,8 @@ root.render(
       <HelmetProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="/version-b" element={<VersionB />} />
+            <Route path="/" element={<VersionB />} />
+            <Route path="/old" element={<App />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/refund" element={<Refund />} />
           </Routes>

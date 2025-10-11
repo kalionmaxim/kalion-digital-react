@@ -95,9 +95,9 @@ const KalionDigital = () => {
   return (
     <>
       <SEO
-        title="Kalion.Digital - Розробка цифрових продуктів | AI автоматизація, SaaS, чат-боти"
+        title="Kalion.Digital (Old Version) - Розробка цифрових продуктів | AI автоматизація, SaaS, чат-боти"
         description="Допомагаємо бізнесу створювати цифрові продукти: AI автоматизація, SaaS розробка, чат-боти, веб та мобільні ігри. Професійна веб-розробка та IT-консалтинг в Україні."
-        url="https://kalion.digital/"
+        url="https://kalion.digital/old"
       />
       <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white transition-colors duration-300">
         <style>{`

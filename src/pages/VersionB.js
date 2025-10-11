@@ -96,7 +96,7 @@ const VersionB = () => {
       <SEO
         title="Kalion.Digital - Розробка цифрових продуктів | AI автоматизація, SaaS, чат-боти"
         description="Допомагаємо бізнесу створювати цифрові продукти: AI автоматизація, SaaS розробка, чат-боти, веб та мобільні ігри. Професійна веб-розробка та IT-консалтинг в Україні."
-        url="https://kalion.digital/version-b"
+        url="https://kalion.digital/"
       />
       <div className="min-h-screen" style={{
         backgroundColor: '#0a0e0f',
@@ -140,9 +140,9 @@ const VersionB = () => {
 
         .hero-title {
           font-family: 'Inter', sans-serif;
-          font-size: clamp(45px, 8vw, 112px);
+          font-size: clamp(50px, 8.8vw, 123px);
           font-weight: 800;
-          line-height: 0.95;
+          line-height: 1.08;
           letter-spacing: -0.04em;
         }
 
@@ -162,8 +162,8 @@ const VersionB = () => {
           }
 
           .hero-title {
-            font-size: clamp(32px, 9.6vw, 45px);
-            line-height: 1.0;
+            font-size: clamp(35px, 10.6vw, 50px);
+            line-height: 1.08;
             letter-spacing: -0.03em;
           }
 
@@ -345,7 +345,7 @@ const VersionB = () => {
               <a href="#partners" className="text-gradient-teal hover:opacity-80 transition" style={{ color: '#8b9499' }}>Партнери</a>
               <a href="#founders" className="text-gradient-teal hover:opacity-80 transition" style={{ color: '#8b9499' }}>Засновники</a>
               <a href="#contact" className="text-gradient-teal hover:opacity-80 transition" style={{ color: '#8b9499' }}>Контакти</a>
-              <Link to="/" className="text-sm px-4 py-2 rounded-lg" style={{ color: '#8b9499', border: '1px solid #1f2629' }}>Version A</Link>
+              <Link to="/old" className="text-sm px-4 py-2 rounded-lg" style={{ color: '#8b9499', border: '1px solid #1f2629' }}>Old Version</Link>
             </div>
 
             <div className="md:hidden flex items-center gap-3">
@@ -364,7 +364,7 @@ const VersionB = () => {
               <a href="#partners" style={{ color: '#8b9499' }}>Партнери</a>
               <a href="#founders" style={{ color: '#8b9499' }}>Засновники</a>
               <a href="#contact" style={{ color: '#8b9499' }}>Контакти</a>
-              <Link to="/" style={{ color: '#8b9499' }}>Version A</Link>
+              <Link to="/old" style={{ color: '#8b9499' }}>Old Version</Link>
             </div>
           )}
         </nav>
